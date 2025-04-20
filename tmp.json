@@ -1,0 +1,125 @@
+{
+    "response_code": 0,
+    "results": [
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science &amp; Nature",
+            "question": "What animal takes part in Schr&ouml;dinger&#039;s most famous thought experiment?",
+            "correct_answer": "Cat",
+            "incorrect_answers": [
+                "Dog",
+                "Bat",
+                "Butterfly"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science &amp; Nature",
+            "question": "Which is the most abundant element in the universe?",
+            "correct_answer": "Hydrogen",
+            "incorrect_answers": [
+                "Helium",
+                "Lithium",
+                "Oxygen"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "medium",
+            "category": "Science &amp; Nature",
+            "question": "What is the atomic number of Uranium ",
+            "correct_answer": "92",
+            "incorrect_answers": [
+                "235",
+                "17",
+                "167"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "medium",
+            "category": "Science &amp; Nature",
+            "question": "Who developed the first successful polio vaccine in the 1950s?",
+            "correct_answer": "Jonas Salk",
+            "incorrect_answers": [
+                "John F. Enders",
+                "Thomas Weller",
+                "Frederick Robbins"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "hard",
+            "category": "Science &amp; Nature",
+            "question": "What physics principle relates the net electric flux out of a closed surface to the charge enclosed by that surface?",
+            "correct_answer": "Gauss&#039;s Law",
+            "incorrect_answers": [
+                "Faraday&#039;s Law",
+                "Ampere&#039;s Law",
+                "Biot-Savart Law"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science &amp; Nature",
+            "question": "Which of these Elements is a metalloid?",
+            "correct_answer": "Antimony",
+            "incorrect_answers": [
+                "Tin",
+                "Bromine",
+                "Rubidium"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science &amp; Nature",
+            "question": "Which of the following is not one of the groups on the periodic table?",
+            "correct_answer": "Fluorines",
+            "incorrect_answers": [
+                "Alkali Metals",
+                "Halogens",
+                "Noble Gases"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "hard",
+            "category": "Science &amp; Nature",
+            "question": "Which of the following are cells of the adaptive immune system?",
+            "correct_answer": "Cytotoxic T cells",
+            "incorrect_answers": [
+                "Dendritic cells",
+                "Natural killer cells",
+                "White blood cells"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science &amp; Nature",
+            "question": "What is the first element on the periodic table?",
+            "correct_answer": "Hydrogen",
+            "incorrect_answers": [
+                "Helium",
+                "Oxygen",
+                "Lithium"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "medium",
+            "category": "Science &amp; Nature",
+            "question": "Which of the following is NOT a passive electrical component?",
+            "correct_answer": "Transistor",
+            "incorrect_answers": [
+                "Resistor",
+                "Capacitor",
+                "Inductor"
+            ]
+        }
+    ]
+}
