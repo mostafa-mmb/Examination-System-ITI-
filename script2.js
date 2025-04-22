@@ -30,6 +30,9 @@ script2Public = (function () {
             choicesPart.append(div);
         }
     })();
+    
+    var flagSystemInitialized = false; //Reem
+
     var userAnswers = [];
     var correctAnswers = [];
     var questionsCount = 0;
@@ -51,6 +54,12 @@ script2Public = (function () {
 
             btnNext.addEventListener("click", getNextQuestion);
             btnPrevious.addEventListener("click", getPreviousQuestion);
+
+            //Reem
+            if (window.flagSystem && !flagSystemInitialized) {
+                window.flagSystem.init(jsonQuestions);
+                flagSystemInitialized = true;
+            }
         }
     });
 
@@ -80,7 +89,7 @@ script2Public = (function () {
             jsonQuestions[i]["choices"][choicesCount - 1] = t;
         }
         for (var i = 0; i < questionsCount; i++) {
-            jsonQuestions[i]["question"] = "Q" + (i + 1) + "- " + jsonQuestions[i]["question"];
+            jsonQuestions[i]["question"] = "Q" + (i + 1) + ". " + jsonQuestions[i]["question"];
         }
     }
 
@@ -117,6 +126,10 @@ script2Public = (function () {
         btnPrevious.disabled=(currentIndex==0);
         btnNext.disabled=(currentIndex + 1 == questionsCount);
         questionPart.innerHTML = jsonQuestions[currentIndex]["question"];
+        if (window.flagSystem) {//Reem
+            window.flagSystem.updateIndex(currentIndex);
+        }
+
         if (userAnswers[currentIndex] != -1) {
             choices[userAnswers[currentIndex]].checked = true;
         }
@@ -128,6 +141,7 @@ script2Public = (function () {
         for (var i = 0; i < choicesCount; i++) {
             choicesContent[i].innerHTML = jsonQuestions[currentIndex]["choices"][i];
         }
+
     }
 
     function getCurrentScore() {
@@ -139,6 +153,10 @@ script2Public = (function () {
         }
         return score;
     }
+
+    document.addEventListener('navigateToQuestion', function(e) {
+        displayQuestionAndCheckedAnswer(e.detail);
+    });//Reem
 
     return {
         displayQuestionAndCheckedAnswer: displayQuestionAndCheckedAnswer,

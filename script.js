@@ -1,28 +1,76 @@
+document.addEventListener('DOMContentLoaded', function() {
 
-// Set the date we're counting down to
-var countDownDate = new Date("Jan 5, 2030 15:37:25").getTime();
+  const questionsCount = 10; // actual question count
+  const timePerQuestion = 1; // minutes per question
+  
+  const totalTimeMs = questionsCount * timePerQuestion * 60 * 1000;
+  const countDownDate = new Date().getTime() + totalTimeMs;
+  const timerDisplay = document.getElementById("demo");
 
-// Update the count down every 1 second
-var x = setInterval(function() {
+  const loader = document.createElement('div');
+  loader.className = 'loader';
+  document.querySelector('.Questioncontainer').appendChild(loader);
 
-  // Get today's date and time
-  var now = new Date().getTime();
 
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
 
-  // Time calculations for days, hours, minutes and seconds
-  var hours = Math.floor((distance % (1 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  initSubmitButton();
 
-  // Display the result in the element with id="demo"
-  document.getElementById("demo").innerHTML =  hours + "h "
-  + minutes + "m " + seconds + "s ";
-
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
+  
+  
+  const timer = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = countDownDate - now;
+      
+      const hours = Math.floor((distance % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
+      const minutes = Math.floor((distance % (60 * 60 * 1000)) / (60 * 1000));
+      const seconds = Math.floor((distance % (60 * 1000)) / 1000);
+      
+      timerDisplay.innerHTML = `${Math.floor(hours)}h ${Math.floor(minutes)}m ${Math.floor(seconds)}s`;
+      
+      if (distance <= 0) {
+          clearInterval(timer);
+          timerDisplay.innerHTML = "TIME IS OVER";
+          disableQuiz();
+          autoSubmit();
+      }
+  }, 1000);
+  
+  function disableQuiz() {
+      document.querySelectorAll('.button-57, .flag-btn, [type="radio"]').forEach(el => {
+          el.disabled = true; 
+      });
+      document.body.classList.add('disabled-quiz');
   }
-}, 1000);
+  
+  function autoSubmit() {
+      showScore();
+      disableQuiz();
+  }
+  
+  function initSubmitButton() {
+      const submitBtn = document.querySelector(".submit-btn button");
+      if (submitBtn) {
+          submitBtn.addEventListener("click", function() {
+              showScore();
+              disableQuiz();
+          });
+      }
+  }
+  
+  function showScore() {
+      try {
+          const score = script2Public.getCurrentScore();
+          const scoreDisplay = document.querySelector('.score');
+          
+          if (scoreDisplay) {
+              scoreDisplay.textContent = `Your score: ${score}/${questionsCount}`;
+              document.querySelector('.score-board').style.display = 'block';
+          }
+      } catch (error) {
+          console.error("Error showing score:", error);
+      }
+  }
+
+
+
+});
