@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
+// mostafa changed the next line
+function flagSystem() {
     // Get DOM elements
     const flagBtn = document.querySelector(".flag-btn");
     const markedQuestionContainer = document.querySelector(".marked-question");
@@ -66,4 +67,4 @@ document.addEventListener('DOMContentLoaded', function() {
         init: initFlagSystem,
         updateIndex: updateCurrentIndex
     };
-});
+};
