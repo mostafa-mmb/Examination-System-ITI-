@@ -1,6 +1,6 @@
 
 
-script2Public = (function () {
+ function exam2() {
     var btnPrevious = document.getElementsByClassName("button-57")[0];
     btnPrevious.disabled = true;
     var btnNext = document.getElementsByClassName("button-57")[1];
@@ -39,7 +39,7 @@ script2Public = (function () {
     var currentIndex = 0;
     var xhrQuestions = new XMLHttpRequest();
     var jsonQuestions;
-    xhrQuestions.open("get", "tmp.json");
+    xhrQuestions.open("get", "exam.json");
     xhrQuestions.send();
     xhrQuestions.addEventListener("readystatechange", function () {
         var t;
@@ -163,6 +163,6 @@ script2Public = (function () {
         getCurrentScore: getCurrentScore
     };
 
-})();
+};
 
 
