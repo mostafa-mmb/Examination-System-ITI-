@@ -39,6 +39,6 @@ function register() {
       };
       localStorage.setItem("user", JSON.stringify(user));
       alert("Registration successful!");
-      window.location.href = "page2.html"; // Go to sign in page
+      window.location.href = "logIn.html"; // Go to sign in page  // mostafa
     }
   }
