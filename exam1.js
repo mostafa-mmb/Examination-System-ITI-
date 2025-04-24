@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
+// mostafa changed the next line
+function exam1(exam2Public) {
 
   const questionsCount = 10; // actual question count
   const timePerQuestion = 1; // minutes per question
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   function showScore() {
       try {
-          const score = script2Public.getCurrentScore();
+          const score = exam2Public.getCurrentScore(); // mostafa
           const scoreDisplay = document.querySelector('.score');
           
           if (scoreDisplay) {
@@ -73,4 +74,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-});
+};
