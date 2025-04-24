@@ -3,6 +3,8 @@ function login() {
     const password = document.getElementById('loginPassword').value;
     const userData = JSON.parse(localStorage.getItem("user"));
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // mostafa
+
     if (!emailRegex.test(email)) {
       document.getElementById('emailError').textContent = "Invalid email address.";
       valid = false;
