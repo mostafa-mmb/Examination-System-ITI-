@@ -59,18 +59,41 @@ function exam1(exam2Public) {
   }
   
   function showScore() {
-      try {
-          const score = exam2Public.getCurrentScore(); // mostafa
-          const scoreDisplay = document.querySelector('.score');
-          
-          if (scoreDisplay) {
-              scoreDisplay.textContent = `Your score: ${score}/${questionsCount}`;
-              document.querySelector('.score-board').style.display = 'block';
-          }
-      } catch (error) {
-          console.error("Error showing score:", error);
-      }
-  }
+    try {
+        const score = exam2Public.getCurrentScore();
+        const userData = JSON.parse(localStorage.getItem("user"));
+        const scoreBoard = document.querySelector('.score-board');
+        
+        if (scoreBoard && userData) {
+            const percentage = Math.round((score/questionsCount)*100);
+            const resultClass = percentage >= 70 ? 'pass' : 'fail';
+            
+            scoreBoard.innerHTML = `
+                <div class="result-header">
+                    <h2>Quiz Results</h2>
+                    <div class="user-name">${userData.name}</div>
+                </div>
+                <div class="result-details ${resultClass}">
+                    <div class="score-display">
+                        <span>${score}</span>/${questionsCount}
+                    </div>
+                    <div class="percentage">${percentage}%</div>
+                    <div class="result-message">${percentage >= 70 ? 'Congratulations!' : 'Keep practicing!'}</div>
+                </div>
+                
+            `;
+            
+            scoreBoard.style.display = 'block';
+            
+            // Add close button functionality
+            document.querySelector('.button-57').addEventListener('click', () => {
+                scoreBoard.style.display = 'none';
+            });
+        }
+    } catch (error) {
+        console.error("Error showing score:", error);
+    }
+}
 
 
 
